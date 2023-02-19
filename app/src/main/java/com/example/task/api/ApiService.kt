@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET()
+    @GET("semi-final-data.json")
     suspend fun getData(): Data
 }
 
@@ -16,7 +16,7 @@ val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 val retrofit: Retrofit =
     Retrofit.Builder()
-        .baseUrl("https://mobile-olympiad-trajectory.hb.bizmrg.com/semi-final-data.json")
+        .baseUrl("https://mobile-olympiad-trajectory.hb.bizmrg.com/")
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 
